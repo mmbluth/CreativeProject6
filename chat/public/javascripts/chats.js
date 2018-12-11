@@ -35,14 +35,4 @@ $(document).ready(function() {
         })
     })
 
-    $("#deleteChats").click(function() {
-        $.ajax({
-            url: "chat",
-            type: "DELETE",
-            success: function(data, textStatus) {
-                $("#done").html(textStatus);
-            }
-        })
-    });
-
 });
