@@ -14,7 +14,7 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             success: function(data, textStatus) {
                 $("#done").html(textStatus);
-                
+                $("#getChats").trigger("click");
             }
         })
     });
