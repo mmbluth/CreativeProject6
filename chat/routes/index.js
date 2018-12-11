@@ -54,7 +54,8 @@ router.post('/user/delete', users.deleteUser);
 router.post('/login', users.login);
 router.get('/user/profile', users.getUserProfile);
 
-var mongoose = require('mongoose'); //Adds mongoose as a usable dependency
+var mongoose = require('mongoose'),
+    Chat = mongoose.model('Chat');
 
 mongoose.connect('mongodb://localhost/chatDB', { useNewUrlParser: true }); //Connects to a mongo database called "chatDB"
 
