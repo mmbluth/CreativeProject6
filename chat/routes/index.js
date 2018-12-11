@@ -99,16 +99,4 @@ router.get('/chat', function(req, res, next) {
     
 });
 
-/* DELETE chats from database */
-router.delete('/chat', function(req, res, next) {
-    console.log("DELETE chat route");
-    Chat.deleteMany({}, function(err, rest) {
-        if (err) return console.error(err);
-        else {
-            console.log(rest);
-        }
-    });
-    res.sendStatus(200);
-});
-
 module.exports = router;
