@@ -54,5 +54,60 @@ router.post('/user/delete', users.deleteUser);
 router.post('/login', users.login);
 router.get('/user/profile', users.getUserProfile);
 
+var mongoose = require('mongoose'); //Adds mongoose as a usable dependency
+
+mongoose.connect('mongodb://localhost/chatDB', { useNewUrlParser: true }); //Connects to a mongo database called "chatDB"
+
+var db = mongoose.connection; //Saves the connection as a variable to use
+db.on('error', console.error.bind(console, 'connection error:')); //Checks for connection errors
+db.once('open', function() { //Lets us know when we're connected
+    console.log('Connected');
+});
+
+/* POST chats from database */
+router.post('/chat', function(req, res, next) {
+    console.log("POST chat route");
+    console.log(req.body);
+    var newchat = new Chat(req.body);
+    console.log(newchat);
+    newchat.save(function(err, post) {
+        if (err) return console.error(err);
+        console.log(post);
+        res.sendStatus(200);
+    });
+
+});
+
+/* GET chats from database */
+router.get('/chat', function(req, res, next) {
+    console.log("GET chat route");
+    var name = req.query['q'];
+    var obj = {};
+    if(name) {
+        obj={Name:name}   
+    }
+
+    
+    Chat.find(obj, function(err, chatList) { //Calls the find() method on your database
+        if (err) return console.error(err); //If there's an error, print it out
+        else {
+            console.log(chatList); //Otherwise console log the chats you found
+        }
+        res.json(chatList); //Then send the chats
+    })
+    
+});
+
+/* DELETE chats from database */
+router.delete('/chat', function(req, res, next) {
+    console.log("DELETE chat route");
+    Chat.deleteMany({}, function(err, rest) {
+        if (err) return console.error(err);
+        else {
+            console.log(rest);
+        }
+    });
+    res.sendStatus(200);
+});
 
 module.exports = router;

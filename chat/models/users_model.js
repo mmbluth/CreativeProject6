@@ -7,3 +7,4 @@ var UserSchema = new Schema({
     hashed_password: String
 });
 mongoose.model('User', UserSchema);
+
