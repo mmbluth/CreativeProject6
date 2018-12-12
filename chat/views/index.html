@@ -2,7 +2,7 @@
 <html ng-app="myApp"> 
     
 <head>
-    <title>User Login and Sessions</title>
+    <title>My Journal</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
@@ -12,7 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="images/chat.png" id="heart_logo">
+        <img src="images/diary.png" id="diary_logo">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,16 +43,16 @@
         </h2>
         
           <form id="chatForm" action="">
-        <label for="name">Name:</label><input type="text" id="name" placeholder="Name"><br><br>
-        <label for="chat">Chat:</label><input type="text" id="chat" placeholder="Chat"><br>
+        <label for="name">Date:</label><input type="text" id="name" placeholder="Name"><br><br>
+        <label for="chat">Entry:</label><input type="text" id="chat" placeholder="Entry"><br>
     </form>
 
-    <button id="postChat">Post Chat</button>
-    <button id="getChats">Get Chats</button>
+    <button id="postChat">Post Entry</button>
+    <button id="getChats">Get Entries</button>
 
     
     <form id="queryForm">
-        <label for="query">Name to query:</label><input type="text" id="query" placeholder="Query"><br>
+        <label for="query">Date to query:</label><input type="text" id="query" placeholder="Query"><br>
     </form>
     
     <div id="json"></div>
